@@ -1,7 +1,6 @@
 from key import chave_api
 import requests
 import pandas as pd
-from io import StringIO
 from tkinter import *
 
 
@@ -9,7 +8,8 @@ def cotacao():
     url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={en_token.get()}.SAO&apikey={chave_api}'
     r = requests.get(url)
     data = r.json()
-    lst = [list(data['Global Quote'].keys()), list(data['Global Quote'].values())]
+    lst = [list(data['Global Quote'].keys()),
+           list(data['Global Quote'].values())]
     total_rows = len(lst)
     total_columns = len(lst[0])
 
